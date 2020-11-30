@@ -1,2 +1,2 @@
 # haxe-injection
-Straight-to-the-point dependency injector for Haxe
+A straight to the point Microsoft-style dependency injection library for Haxe

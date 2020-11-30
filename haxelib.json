@@ -1,0 +1,14 @@
+{
+   "name": "haxe-injection",
+   "url": "https://github.com/paulsgcross/haxe-injection",
+   "license": "MIT",
+   "classPath": "src/",
+   "tags": [
+      "utility", "cross"
+   ],
+   "description": "A straight to the point Microsoft-style dependency injection library for Haxe",
+   "contributors": ["PaulSGCross"],
+   "releasenote": "Initial release, everything is working correctly.",
+   "version": "0.0.1",
+   "dependencies": { }
+}
