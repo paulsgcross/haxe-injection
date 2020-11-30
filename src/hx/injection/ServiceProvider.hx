@@ -1,5 +1,7 @@
 package hx.injection;
 
+import haxe.Exception;
+
 
 /*
 MIT License
@@ -38,7 +40,7 @@ class ServiceProvider {
     public function getService<S : Service>(type : Class<S>) : S {
         var service = _services.get(Type.getClassName(type));
         if(service == null) {
-            throw new ServiceNotFoundException<S>(type);
+            throw new Exception("Service of type " + type + " not found.");
         }
         return cast service;
     }
