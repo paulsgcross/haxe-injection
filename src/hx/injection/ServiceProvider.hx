@@ -54,7 +54,7 @@ class ServiceProvider {
     public function toString() : String {
         var string = "\nApplication services:- \n";
         for (service in _services) {
-            string += "Service: " + service + "\n";
+            string += "\t" + service + "\n";
         }
         return string;
     }

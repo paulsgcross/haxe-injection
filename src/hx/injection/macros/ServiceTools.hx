@@ -1,4 +1,4 @@
-package hx.injection;
+package hx.injection.macros;
 
 /*
 MIT License
@@ -24,8 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@:autoBuild(hx.injection.macros.ServiceMacro.build())
-interface Service {
-    @:allow(hx.injection.ServiceCollection)
-    private function getConstructorArgs() : Array<String>;
+class ServiceTools {
+    private static var _serviceMap : Map<String, String> = new Map();
+    public static function getService(key : String) : String {
+        return _serviceMap.get(key);
+    }
 }
