@@ -1,6 +1,5 @@
 package hx.injection;
 
-import hxcpp.debug.jsonrpc.VariablesPrinter.Value;
 import haxe.Exception;
 
 /*
@@ -29,7 +28,6 @@ SOFTWARE.
 
 class ServiceCollection {
     
-    private var _dependencyType : DependencyType;
     private var _configs : Map<String, Any>;
     private var _requestedServices : Map<String, Class<Service>>;
     private var _services : Map<String, Service>;
@@ -67,27 +65,24 @@ class ServiceCollection {
             return instance;
         }
 
-        var type = DependencyType.NONE;
         var args = getServiceArgs(service);
         var dependencies = [];
         for(arg in args) {
-            var config = _configs.get(arg);
             var dependency = getService(arg);
-
-            if(config != null && dependency == null) {
-                type = DependencyType.CONFIG;
+            if(dependency != null) {
+                dependencies.push(handleService(arg, dependency));
+                continue;
             } else {
-                type = DependencyType.SERVICE;
+            //    throw new Exception('Service dependency ' + arg + ' does not exist for service ' + service + '.');
             }
 
-            switch(type) {
-                case NONE:
-                    dependencies.push(null);
-                case CONFIG:
-                    dependencies.push(config);
-                case SERVICE:
-                    dependencies.push(handleService(arg, dependency));
+            var config = _configs.get(arg);
+            if(config != null) {
+                dependencies.push(config);
+                continue;
             }
+
+            dependencies.push(null);
         }
 
         instance = Type.createInstance(service, dependencies);
@@ -112,10 +107,4 @@ class ServiceCollection {
     private function getHandled(interfaceName : String) : Service {
         return _services.get(interfaceName);
     }
-}
-
-enum DependencyType {
-    NONE;
-    CONFIG;
-    SERVICE;
 }
