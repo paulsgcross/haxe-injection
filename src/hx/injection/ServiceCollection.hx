@@ -72,8 +72,6 @@ class ServiceCollection {
             if(dependency != null) {
                 dependencies.push(handleService(arg, dependency));
                 continue;
-            } else {
-            //    throw new Exception('Service dependency ' + arg + ' does not exist for service ' + service + '.');
             }
 
             var config = _configs.get(arg);
