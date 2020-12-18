@@ -3,6 +3,7 @@ package example;
 import hx.injection.*;
 
 class Main {
+
     static public function main() : Void {
       // Example 1:
       var collection = new ServiceCollection();
@@ -25,4 +26,5 @@ class Main {
     private static function sayWord(service : TestService) : Void {
       service.sayWord();
     }
+
   }
