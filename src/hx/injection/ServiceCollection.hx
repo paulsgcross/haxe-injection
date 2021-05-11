@@ -42,7 +42,7 @@ class ServiceCollection {
         _configs.set(Type.getClassName(Type.getClass(config)), config);
     }
     
-    public function add<T : Service, V : T>(type : Class<T>, service : Class<V>) : ServiceCollection {
+    public function addService<T : Service, V : T>(type : Class<T>, service : Class<V>) : ServiceCollection {
         _requestedServices.set(Type.getClassName(type), cast service);
         
         return this;
@@ -80,7 +80,7 @@ class ServiceCollection {
                 continue;
             }
 
-            dependencies.push(null);
+            throw new Exception('Dependency ' + arg + ' for ' + service + ' is missing. Did you add it to the collection?');
         }
 
         instance = Type.createInstance(service, dependencies);
