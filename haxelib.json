@@ -8,7 +8,7 @@
    ],
    "description": "A straight to the point Microsoft-style dependency injection library for Haxe",
    "contributors": ["PaulSGCross"],
-   "releasenote": "Initial release, everything is working correctly.",
-   "version": "0.0.1",
+   "releasenote": "Small patch to enforce service dependecies to require non-null instances of configuration files or other services.",
+   "version": "0.0.2",
    "dependencies": { }
 }
