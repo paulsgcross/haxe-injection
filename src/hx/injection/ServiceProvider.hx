@@ -33,8 +33,6 @@ class ServiceProvider {
     
     public function new(services : Map<String, Service>) {
         _services = services;
-        
-        trace(this);
     }
     
     public function getService<S : Service>(type : Class<S>) : S {
