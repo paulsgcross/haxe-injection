@@ -96,10 +96,13 @@ class ServiceMacro {
 
 										if (argName == null) {
 											for (int in interfaces) {
-												if (int.t.toString() == t.toString()) {
-													Context.error('Service: Argument ${argNum} of type \'${t.toString()}\' in ${classType.name} is recursive.',
-														pos);
-												}
+												var hash_1 = int.t.toString();
+												var hash_2 = t.toString();
+												
+												// if (hash_1 == hash_2) {
+												// 	Context.error('Service: Argument ${argNum} (${t.toString()}) is recursive in ${classType.name}.',
+												// 		pos);
+												// }
 											}
 										}
 

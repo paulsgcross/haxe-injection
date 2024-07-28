@@ -191,6 +191,11 @@ final class ServiceProvider implements Destructable implements Service {
 					}
 				}
 
+			if(_requestedInstances.get(arg) != null) {
+				dependencies.push(_requestedInstances.get(arg));
+				continue;
+			}
+
 			var config = getRequestedConfig(arg);
 			if (config != null) {
 				dependencies.push(config);
